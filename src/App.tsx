@@ -5,8 +5,9 @@ import { ExpenseList } from "./components/ExpenseList";
 import { ExpenseSummary } from "./components/ExpenseSummary";
 import { ExpenseChart } from "./components/ExpenseChart";
 import { Wallet } from "lucide-react";
+import FiverrAd from "./FiverrAd";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <ExpenseProvider>
@@ -53,13 +54,7 @@ function App() {
                       Ad
                     </h2>
                     <div className="flex justify-center">
-                      <iframe
-                        className="w-full max-w-4xl xl:h-72"
-                        src="https://fiverr.ck-cdn.com/tn/serve/geoGroup/?rgid=2&bta=1096089"
-                        style={{ border: "none" }}
-                        scrolling="no"
-                        allowFullScreen
-                      ></iframe>
+                      <FiverrAd />
                     </div>
                   </div>
                 </div>
@@ -70,6 +65,6 @@ function App() {
       </ExpenseProvider>
     </>
   );
-}
+};
 
 export default App;
