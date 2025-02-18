@@ -4,6 +4,7 @@ import App from "./App";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import OnlineOfflineStatus from "./components/OnlineOfflineStatus";
+import AdComponent from "./components/AdComponent";
 import "./index.css";
 
 // Register Service Worker
@@ -24,6 +25,7 @@ if (rootElement) {
     <StrictMode>
       <Header />
       <OnlineOfflineStatus />
+      <AdComponent />
       <App />
       <Footer />
     </StrictMode>

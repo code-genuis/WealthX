@@ -12,7 +12,7 @@ const App: React.FC = () => {
     <>
       <ExpenseProvider>
         <div className="min-h-screen bg-gray-100">
-          <div className="py-6">
+          <div className="pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex mt-12 items-center justify-center mb-8">
                 <Wallet className="h-10 w-10 text-blue-600" />
