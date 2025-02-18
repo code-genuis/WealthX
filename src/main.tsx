@@ -1,24 +1,33 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import Header from "./common/Header.tsx";
-import Footer from "./common/Footer.tsx";
+import App from "./App";
+import Header from "./common/Header";
+import Footer from "./common/Footer";
+import OnlineOfflineStatus from "./components/OnlineOfflineStatus";
 import "./index.css";
 
-// ✅ Service Worker Register Karne Ka Code
+// Register Service Worker
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/sw.js")
-      .then((reg) => console.log("✅ Service Worker Registered", reg))
-      .catch((err) => console.log("❌ Service Worker Registration Failed", err));
-  });
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then(() => {
+      console.log("✅ Service Worker Registered");
+    })
+    .catch((err) => console.error("❌ Service Worker Error:", err));
 }
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <Header />
-    <App />
-    <Footer />
-  </StrictMode>
-);
+// Ensure "root" exists before rendering
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <Header />
+      <OnlineOfflineStatus />
+      <App />
+      <Footer />
+    </StrictMode>
+  );
+} else {
+  console.error("❌ Root element not found!");
+}
